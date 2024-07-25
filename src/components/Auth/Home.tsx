@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, Pressable, TouchableHighlight, TouchableWithoutFeedback } from "react-native";
-import OutsidePressHandler from "react-native-outside-press";
 
 const Home = () => {
     const [visible, setVisible] = useState(false);

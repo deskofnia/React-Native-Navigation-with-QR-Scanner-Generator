@@ -1,42 +1,18 @@
 import React from 'react'
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import { TouchableOpacity, StyleSheet, Text } from 'react-native';
-import Alarms from '../screens/Alarms';
-import Edit from '../screens/Edit';
-import Ring from '../screens/Ring';
+import { StyleSheet } from 'react-native';
+import Scan from '../components/Scan';
+import Home from '../components/Auth/Home';
 
 const Stack = createNativeStackNavigator();
 
 const AppStack = () => {
     return (
-        <Stack.Navigator initialRouteName={"Alarms"}>
-
+        <Stack.Navigator initialRouteName={"/"}>
             <Stack.Screen
-                name="Alarms"
-                component={Alarms}
-                options={params => ({
-                    ...headerStyles,
-                    title: 'Alarms',
-                    headerRight: () => (
-                        <TouchableOpacity
-                            style={styles.button}
-                            onPress={() => params.navigation.navigate('Edit')}
-                            underlayColor="#fff"
-                        >
-                            <Text style={styles.buttonText}>{'+ '}</Text>
-                        </TouchableOpacity>
-                    ),
-                })}
-            />
-            <Stack.Screen
-                name="Edit"
-                component={Edit}
-                options={{ ...headerStyles, title: 'Alarm' }}
-            />
-            <Stack.Screen
-                name="Ring"
-                component={Ring}
+                name="/"
+                component={Scan}
                 options={{ headerShown: false }}
             />
         </Stack.Navigator>
