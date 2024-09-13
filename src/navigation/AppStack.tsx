@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { StyleSheet } from 'react-native';
 import Scan from '../components/Scan';
-import Home from '../components/Auth/Home';
+import Home from '../components/Home';
 
 const Stack = createNativeStackNavigator();
 

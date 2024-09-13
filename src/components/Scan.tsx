@@ -21,7 +21,7 @@ const Scan = ({ navigation }: any) => {
         manufacturer: ' Hope you’re doing great. This time I’m gonna share my experience'
     }
 
-    const onSuccess = (e) => {
+    const onSuccess = (e: any) => {
         console.log("eeeeeeeeeeeeeeee=============", e)
         setResult(e);
         setScan(false);
