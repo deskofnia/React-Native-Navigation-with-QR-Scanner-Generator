@@ -1,4 +1,20 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native QR Code Generator and Scanner
+
+This project demonstrates how to implement a QR code generator and scanner in a React Native application using libraries like `react-native-qrcode-svg` for generating QR codes and `react-native-camera` or `expo-camera` for scanning them.
+
+## Features
+
+- **QR Code Generator**: Generate QR codes from input text.
+- **QR Code Scanner**: Scan QR codes using the device camera.
+
+## Prerequisites
+
+- Node.js
+- npm or yarn
+- React Native CLI or Expo CLI
+- For **React Native CLI**: Android Studio / Xcode installed for emulators
+- For **Expo**: Expo Go app for testing on real devices
+
 
 # Getting Started
 
