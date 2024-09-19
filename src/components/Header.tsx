@@ -31,7 +31,7 @@ export default Header;
 const headerStyles = StyleSheet.create({
     container: {
         position: 'absolute',
-        top: 30,
+        top: 0,
         left: 0,
         width: '100%',
         backgroundColor: '#fa7da7',

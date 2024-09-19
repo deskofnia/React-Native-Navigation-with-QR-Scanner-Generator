@@ -1,5 +1,7 @@
 import Home from '../components/Home';
+import GenerateQRScreen from '../screens/Generate';
 import ProfileScreen from '../screens/Profile';
+import ScanQRScreen from '../screens/Scan';
 import SettingsScreen from '../screens/Settings';
 
 export default [
@@ -19,13 +21,13 @@ export default [
     name: 'QR Scanner',
     iconType: 'Material',
     iconName: 'scan-helper',
-    component: ProfileScreen,
+    component: ScanQRScreen,
   },
   {
     name: 'QR Generator',
     iconType: 'Material',
     iconName: 'qrcode-scan',
-    component: ProfileScreen,
+    component: GenerateQRScreen,
   },
   {
     name: 'Settings',

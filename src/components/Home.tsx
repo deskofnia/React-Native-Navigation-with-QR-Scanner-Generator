@@ -6,7 +6,7 @@ const Home = () => {
 
     return (
         <>
-            <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "pink" }}>
+            <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "white" }}>
                 <Pressable onPress={() => console.log("Parent Pressable - Event Triggered!")}>
                     {/* Child Pressable */}
                     <View style={{ borderRadius: 8, backgroundColor: "yellow", padding: 10, marginBottom: 8 }}>

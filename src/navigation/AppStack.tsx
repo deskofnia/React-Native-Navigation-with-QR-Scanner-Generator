@@ -1,19 +1,21 @@
 import React from 'react'
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
-import { StyleSheet } from 'react-native';
-import Scan from '../components/Scan';
-import Home from '../components/Home';
+import ScanQRScreen from '../screens/Scan';
 
 const Stack = createNativeStackNavigator();
 
 const AppStack = () => {
+
     return (
         <Stack.Navigator initialRouteName={"/"}>
             <Stack.Screen
                 name="/"
-                component={Scan}
-                options={{ headerShown: false }}
+                component={ScanQRScreen}
+                options={{
+                    headerShown: true,
+                    header: () => null,
+
+                }}
             />
         </Stack.Navigator>
     )
@@ -30,15 +32,3 @@ export const headerStyles = {
         fontWeight: 'bold',
     },
 };
-
-const styles = StyleSheet.create({
-    button: {
-        backgroundColor: 'transparent',
-        padding: 10,
-    },
-    buttonText: {
-        color: 'black',
-        fontWeight: 'bold',
-        fontSize: 25,
-    },
-});
