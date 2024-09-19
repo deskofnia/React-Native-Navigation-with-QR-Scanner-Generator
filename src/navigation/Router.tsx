@@ -1,14 +1,12 @@
 import React from 'react'
 import { NavigationContainer } from "@react-navigation/native";
-import AppStack from "./AppStack";
-import AppDrawer from './AppDrawer';
 import "react-native-gesture-handler";
+import AppDrawer from './AppDrawer';
 
 
 const Router = () => {
     return (
         <NavigationContainer>
-            {/* <AppStack /> */}
             <AppDrawer />
         </NavigationContainer>
     )

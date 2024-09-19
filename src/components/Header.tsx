@@ -14,7 +14,6 @@ type DrawerNavigation = DrawerNavigationProp<RootParamList>;
 const Header = ({ screen }: any) => {
     const navigation = useNavigation<DrawerNavigation>();
 
-
     return (
         <View style={headerStyles.container}>
             <TouchableOpacity onPress={() => navigation.toggleDrawer()}>

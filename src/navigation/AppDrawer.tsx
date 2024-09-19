@@ -1,64 +1,91 @@
 import React from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import DrawerItems from "../constants/DrawerItems";
-import ProfileScreen from "../screens/Profile";
-import SettingsScreen from "../screens/Settings";
-import SavedScreen from "../screens/Saved";
-import ReferScreen from "../screens/Refer";
 
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import Feather from "react-native-vector-icons/Feather";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import Header from '../components/Header';
+import AppStack from './AppStack';
+import { Text, View } from 'react-native';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 const Drawer = createDrawerNavigator();
 
+const renderIcon = (iconType: string, iconName: string, focused: boolean) => {
+    switch (iconType !== undefined) {
+        case iconType === "Material":
+            return (
+                <MaterialCommunityIcons
+                    name={iconName}
+                    size={24}
+                    color={focused ? "#e91e63" : "black"}
+                />
+            )
+        case iconType === "Feather":
+            return (
+                <Feather
+                    name={iconName}
+                    size={24}
+                    color={focused ? "#e91e63" : "black"}
+                />
+            )
+        case iconType === "FontAwesome5":
+            return (
+                <FontAwesome5
+                    name={iconName}
+                    size={24}
+                    color={focused ? "#e91e63" : "black"}
+                />
+            )
+        default:
+            return null
+    }
+}
+
 const AppDrawer = () => {
     return (
-        <Drawer.Navigator
-            initialRouteName="Profile"
-        >
+        <Drawer.Navigator initialRouteName="Profile">
             {
                 DrawerItems.map(drawer =>
-                    <Drawer.Screen
-                        key={drawer.name}
-                        name={drawer.name}
-                        options={{
-                            drawerIcon: ({ focused }) =>
-                                drawer.iconType === 'Material' ?
-                                    <MaterialCommunityIcons
-                                        name={drawer.iconName}
-                                        size={24}
-                                        color={focused ? "#e91e63" : "black"}
-                                    />
-                                    :
-                                    drawer.iconType === 'Feather' ?
-                                        <Feather
-                                            name={drawer.iconName}
-                                            size={24}
-                                            color={focused ? "#e91e63" : "black"}
-                                        />
-                                        :
-                                        <FontAwesome5
-                                            name={drawer.iconName}
-                                            size={24}
-                                            color={focused ? "#e91e63" : "black"}
-                                        />
-                            ,
-                            headerShown: true,
-                            header: ({ options }) => {
-                                console.log("=====", options.header)
-
-                                return (
-                                    <Header screen={drawer.name} />
-                                );
-                            },
-                        }}
-                        component={drawer.name === 'Profile' ? ProfileScreen
-                            : drawer.name === 'Settings' ? SettingsScreen
-                                : drawer.name === 'Saved Items' ? SavedScreen
-                                    : ReferScreen}
-                    />)
+                    drawer.name === 'QR Scanner' ? (
+                        <Drawer.Screen
+                            key={drawer.name}
+                            name={drawer.name}
+                            options={{
+                                drawerIcon: ({ focused }) => renderIcon(drawer.iconType, drawer.iconName, focused),
+                                headerShown: true,
+                                headerTitleAlign: "left",
+                                drawerLabel: () => (
+                                    <View
+                                        style={{
+                                            flexDirection: "row",
+                                            alignItems: "center",
+                                            justifyContent: "space-between",
+                                            width: "115%",
+                                        }}
+                                    >
+                                        <Text style={{ fontWeight: "700", fontSize: 14 }}>{drawer.name}</Text>
+                                        <Entypo name="chevron-right" size={25} color="black" />
+                                    </View>
+                                )
+                                // header: () => <Header screen="QR Scanner" />,
+                            }}
+                            component={AppStack}
+                        />
+                    ) : (
+                        <Drawer.Screen
+                            key={drawer.name}
+                            name={drawer.name}
+                            options={{
+                                drawerIcon: ({ focused }) => renderIcon(drawer.iconType, drawer.iconName, focused),
+                                headerShown: true,
+                                header: () => <Header screen={drawer.name} />,
+                            }}
+                            component={drawer.component}
+                        />
+                    )
+                )
             }
         </Drawer.Navigator>
     )
