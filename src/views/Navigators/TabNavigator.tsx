@@ -54,7 +54,7 @@ const TabNavigator = () => {
                 name="Notifications"
                 component={Notifications}
                 options={{
-                    tabBarLabel: 'Updates',
+                    tabBarLabel: 'Notifications',
                     tabBarBadge: 3,
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="bell" color={color} size={size} />

@@ -1,14 +1,14 @@
 import React from 'react'
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
-import DrawerItems from "../constants/DrawerItems";
+import DrawerItems from "../../constants/DrawerItems";
 
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import Feather from "react-native-vector-icons/Feather";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import Header from '../components/Header';
+import Header from '../../components/Header';
 import { Image, Text, View } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
-import { MyAppLogo } from '../assets/images';
+import { MyAppLogo } from '../../assets/images';
 import { DrawerNavigationState, ParamListBase } from '@react-navigation/native';
 import { DrawerDescriptorMap, DrawerNavigationHelpers } from '@react-navigation/drawer/lib/typescript/src/types';
 
@@ -52,7 +52,7 @@ type IProps = {
     descriptors: DrawerDescriptorMap;
 };
 
-const CustomDrawerContent = (props: IProps) => {
+export const CustomDrawerContent = (props: IProps) => {
     return (
         <DrawerContentScrollView {...props}>
             <View

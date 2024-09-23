@@ -3,7 +3,6 @@ import {
     StyleSheet,
     Text,
     View,
-    Image,
     Dimensions,
     Animated,
     ImageRequireSource,
@@ -247,7 +246,7 @@ export default function TabViewExample() {
                     ],
                     {
                         listener: ({ nativeEvent: { offset, position } }) => {
-                            console.log(`Position: ${position} Offset: ${offset}`);
+                            // console.log(`Position: ${position} Offset: ${offset}`);
                         },
                         useNativeDriver: true,
                     }

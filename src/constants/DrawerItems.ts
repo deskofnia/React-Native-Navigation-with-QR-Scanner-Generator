@@ -1,9 +1,9 @@
-import Home from '../components/Home';
+import Home from '../screens/Home';
 import GenerateQRScreen from '../screens/Generate';
 import ProfileScreen from '../screens/Profile';
 import ScanQRScreen from '../screens/Scan';
 import SettingsScreen from '../screens/Settings';
-import TabNavigator from '../navigation/TabNavigator';
+import TabNavigator from '../views/Navigators/TabNavigator';
 import TabViewExample from '../screens/TabView';
 
 export default [

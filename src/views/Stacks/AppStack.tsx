@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStackNavigator } from "@react-navigation/stack";
-import ScanQRScreen from '../screens/Scan';
+import ScanQRScreen from '../../screens/Scan';
 
 const Stack = createStackNavigator();
 
