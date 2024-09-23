@@ -33,7 +33,6 @@ const MultiStackTabNavigator = () => {
                 component={HomeStack}
                 options={{
                     tabBarLabel: 'Home Stack',
-                    // tabBarBadge: 3,
                     tabBarIcon: ({ color, size }) => (
                         <FontAwesome5 name="home" color={color} size={size} />
                     ),
