@@ -1,8 +1,8 @@
 import React from 'react'
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import ScanQRScreen from '../screens/Scan';
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 const AppStack = () => {
 
@@ -12,6 +12,7 @@ const AppStack = () => {
                 name="/"
                 component={ScanQRScreen}
                 options={{
+                    presentation: 'modal',
                     headerShown: true,
                     header: () => null,
 

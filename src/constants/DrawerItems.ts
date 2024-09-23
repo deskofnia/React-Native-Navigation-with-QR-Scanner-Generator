@@ -3,6 +3,8 @@ import GenerateQRScreen from '../screens/Generate';
 import ProfileScreen from '../screens/Profile';
 import ScanQRScreen from '../screens/Scan';
 import SettingsScreen from '../screens/Settings';
+import TabNavigator from '../navigation/TabNavigator';
+import TabViewExample from '../screens/TabView';
 
 export default [
   {
@@ -28,6 +30,18 @@ export default [
     iconType: 'Material',
     iconName: 'qrcode-scan',
     component: GenerateQRScreen,
+  },
+  {
+    name: 'View Tabs',
+    iconType: 'Material',
+    iconName: 'view-column-outline',
+    component: TabViewExample,
+  },
+  {
+    name: 'Bottom Tabs',
+    iconType: 'Feather',
+    iconName: 'navigation',
+    component: TabNavigator,
   },
   {
     name: 'Settings',

@@ -14,7 +14,6 @@ export default function ScanQRScreen() {
     const scannerRef = useRef<any>(null);
 
     const onSuccess = (e: any) => {
-        console.log("eeeeeeeeeeeeeeee=============", e)
         setResult(e);
         setScan(false);
         setScanResult(true);
@@ -67,26 +66,28 @@ export default function ScanQRScreen() {
             }
             {
                 scan && (
-                    <QRCodeScanner
-                        reactivate={true}
-                        showMarker={true}
-                        ref={scannerRef}
-                        onRead={onSuccess}
-                        topContent={
-                            <Text style={styles.centerText}>
-                                Please move your camera {"\n"} over the QR Code
-                            </Text>
-                        }
-                        bottomContent={
-                            <View>
-                                <TouchableOpacity
-                                    onPress={() => scannerRef.current.reactivate()}
-                                    onLongPress={() => setScan(false)}>
-                                    <Text>Click to Re Activate or Hold to close</Text>
-                                </TouchableOpacity>
-                            </View>
-                        }
-                    />
+                    <View style={{ flex: 1, marginTop: 30 }}>
+                        <QRCodeScanner
+                            reactivate={true}
+                            showMarker={true}
+                            ref={scannerRef}
+                            onRead={onSuccess}
+                            topContent={
+                                <Text style={styles.centerText}>
+                                    Please move your camera {"\n"} over the QR Code
+                                </Text>
+                            }
+                            bottomContent={
+                                <View>
+                                    <TouchableOpacity
+                                        onPress={() => scannerRef.current.reactivate()}
+                                        onLongPress={() => setScan(false)}>
+                                        <Text>Click to Re Activate or Hold to close</Text>
+                                    </TouchableOpacity>
+                                </View>
+                            }
+                        />
+                    </View>
                 )
             }
         </View >
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
     scrollViewStyle: {
         flex: 1,
         justifyContent: 'flex-start',
-        backgroundColor: '#2196f3'
+        // backgroundColor: '#2196f3'
     },
     header: {
         display: 'flex',
@@ -123,16 +124,15 @@ const styles = StyleSheet.create({
         color: 'white'
     },
     cardView: {
-        width: deviceWidth - 32,
-        height: deviceHeight - 350,
+        width: deviceWidth,
+        height: deviceHeight,
         alignSelf: 'center',
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 10,
         padding: 25,
         marginLeft: 5,
         marginRight: 5,
-        marginTop: '10%',
         backgroundColor: 'white'
     },
     scanCardView: {
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 18,
         padding: 32,
-        color: 'white',
+        color: 'black',
     },
     textBold: {
         fontWeight: '500',

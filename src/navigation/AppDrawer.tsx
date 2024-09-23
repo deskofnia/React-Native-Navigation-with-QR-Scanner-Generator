@@ -1,16 +1,15 @@
 import React from 'react'
-import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerNavigationProp } from '@react-navigation/drawer';
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import DrawerItems from "../constants/DrawerItems";
 
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import Feather from "react-native-vector-icons/Feather";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import Header from '../components/Header';
-import AppStack from './AppStack';
 import { Image, Text, View } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import { MyAppLogo } from '../assets/images';
-import { DrawerNavigationState, ParamListBase, useNavigation } from '@react-navigation/native';
+import { DrawerNavigationState, ParamListBase } from '@react-navigation/native';
 import { DrawerDescriptorMap, DrawerNavigationHelpers } from '@react-navigation/drawer/lib/typescript/src/types';
 
 
@@ -54,9 +53,6 @@ type IProps = {
 };
 
 const CustomDrawerContent = (props: IProps) => {
-
-    console.log("======props", props)
-
     return (
         <DrawerContentScrollView {...props}>
             <View
@@ -82,62 +78,34 @@ const AppDrawer = () => {
     return (
         <Drawer.Navigator initialRouteName="Profile" drawerContent={(props) => <CustomDrawerContent {...props} />} >
             {
-                DrawerItems.map(drawer =>
-                    drawer.name === 'QR Scanner' ? (
-                        <Drawer.Screen
-                            key={drawer.name}
-                            name={drawer.name}
-                            options={{
-                                headerShown: true,
-                                drawerIcon: ({ focused }) => renderIcon(drawer.iconType, drawer.iconName, focused),
-                                drawerLabel: ({ focused }) => (
-                                    <View
-                                        style={{
-                                            flexDirection: "row",
-                                            alignItems: "center",
-                                            justifyContent: "space-between",
-                                            width: "115%",
-                                        }}
-                                    >
-                                        <Text style={{ fontWeight: "700", fontSize: 14 }}>{drawer.name}</Text>
-                                        {
-                                            focused &&
-                                            <Entypo name="chevron-right" size={25} color="black" />
-                                        }
-                                    </View>
-                                ),
-                            }}
-                            component={AppStack}
-                        />
-                    ) : (
-                        <Drawer.Screen
-                            key={drawer.name}
-                            name={drawer.name}
-                            options={{
-                                drawerIcon: ({ focused }) => renderIcon(drawer.iconType, drawer.iconName, focused),
-                                headerShown: true,
-                                header: () => <Header screen={drawer.name} />,
-                                drawerLabel: ({ focused }) => (
-                                    <View
-                                        style={{
-                                            flexDirection: "row",
-                                            alignItems: "center",
-                                            justifyContent: "space-between",
-                                            width: "115%",
-                                        }}
-                                    >
-                                        <Text style={{ fontWeight: "700", fontSize: 14 }}>{drawer.name}</Text>
-                                        {
-                                            focused &&
-                                            <Entypo name="chevron-right" size={25} color="black" />
-                                        }
-                                    </View>
-                                ),
-                            }}
-                            component={drawer.component}
-                        />
-                    )
-                )
+                DrawerItems.map(drawer => (
+                    <Drawer.Screen
+                        key={drawer.name}
+                        name={drawer.name}
+                        options={{
+                            drawerIcon: ({ focused }) => renderIcon(drawer.iconType, drawer.iconName, focused),
+                            headerShown: true,
+                            header: () => <Header screen={drawer.name} />,
+                            drawerLabel: ({ focused }) => (
+                                <View
+                                    style={{
+                                        flexDirection: "row",
+                                        alignItems: "center",
+                                        justifyContent: "space-between",
+                                        width: "115%",
+                                    }}
+                                >
+                                    <Text style={{ fontWeight: "700", fontSize: 14 }}>{drawer.name}</Text>
+                                    {
+                                        focused &&
+                                        <Entypo name="chevron-right" size={25} color="black" />
+                                    }
+                                </View>
+                            ),
+                        }}
+                        component={drawer.component}
+                    />
+                ))
             }
         </Drawer.Navigator>
     )
