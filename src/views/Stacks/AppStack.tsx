@@ -5,7 +5,6 @@ import ScanQRScreen from '../../screens/Scan';
 const Stack = createStackNavigator();
 
 const AppStack = () => {
-
     return (
         <Stack.Navigator initialRouteName={"/"}>
             <Stack.Screen
@@ -15,7 +14,6 @@ const AppStack = () => {
                     presentation: 'modal',
                     headerShown: true,
                     header: () => null,
-
                 }}
             />
         </Stack.Navigator>

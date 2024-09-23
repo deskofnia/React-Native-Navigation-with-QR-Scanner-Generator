@@ -68,7 +68,6 @@ export const CustomDrawerContent = (props: IProps) => {
                 <Image source={MyAppLogo} style={{ backgroundColor: "black" }} />
                 <Entypo name="circle-with-cross" size={25} color="black" onPress={() => props.navigation.closeDrawer()} />
             </View>
-
             <DrawerItemList {...props} />
         </DrawerContentScrollView>
     )
